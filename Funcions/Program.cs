@@ -4,17 +4,12 @@ namespace Funcions
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-
-        }
-
-        public int add(int a, int b)
+        public static int Add(int a, int b)
         {
             return a + b;
         }
 
-        public int sub(int a, int b)
+        public static int Sub(int a, int b)
         {
             return a - b;
         }
@@ -22,9 +17,20 @@ namespace Funcions
         //Delegat Func<int, int, int> definiuje że zmienna addOrSub powinna być funkcją
         //która przyjmuje pierwszy argument typu int, drugi argument typu int oraz zwraca int
         // na co wskazuje ostatni argument int.
-        public int function(int a,int b, Func<int, int, int> addOrSub)
+        public static int Function(int a, int b, Func<int, int, int> addOrSub)
         {
-            return addOrSub(a,b);
+            return addOrSub(a, b);
+        }
+        public static void Main(string[] args)
+        {
+            int var1 = 1_000;
+            int var2 = 100;
+
+            int result1 = Function(var1,var2, Add);
+            Console.WriteLine("result1: " + result1);
+
+            int result2 = Function(var1, var2, Sub);
+            Console.WriteLine("result2: " + result2);
         }
     }
 }
